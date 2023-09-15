@@ -1,0 +1,84 @@
+1) Create a list API with search by first_name, last_name and city with pagination.
+
+Request = GET - localhost:3000/api/customer?page=1&limit=2
+Response = 
+{
+    "totalCustomers": 5,
+    "currentPage": 1,
+    "customers": [
+        {
+            "id": 1,
+            "first_name": "Aman",
+            "last_name": "Gupta",
+            "city": "Ahmedabad",
+            "company": "SublimeDataSystems"
+        },
+        {
+            "id": 2,
+            "first_name": "Anand",
+            "last_name": "Joshi",
+            "city": "Rajkot",
+            "company": "TestComapny"
+        }
+    ]
+}
+
+Request = GET - localhost:3000/api/customer?search=jetpur
+Response = 
+{
+    "totalCustomers": 1,
+    "currentPage": 1,
+    "customers": [
+        {
+            "id": 4,
+            "first_name": "Bhavika",
+            "last_name": "Chavda",
+            "city": "Jetpur",
+            "company": "DemoCompany"
+        }
+    ]
+}
+
+-> you can also check for - GET - localhost:3000/api/customers
+
+<----------------------------------------------------------------------------------------->
+
+2) Create an API to get single customer data by its id.
+
+Request = GET - localhost:3000/api/customer/1
+Response = 
+{
+    "id": 1,
+    "first_name": "Aman",
+    "last_name": "Gupta",
+    "city": "Ahmedabad",
+    "company": "SublimeDataSystems"
+}
+<----------------------------------------------------------------------------------------->
+
+3)  Create an API to list all the unique cities with number of customers from a particular city. 
+
+Request = GET - localhost:3000/api/cities
+Response =
+{
+    "Ahmedabad": 1,
+    "Rajkot": 1,
+    "Mahesana": 1,
+    "Jetpur": 1
+}
+
+<----------------------------------------------------------------------------------------->
+
+4) Create an API to add a customer with validations. All fields required and the city and company should already exists for an existing customer. No new city or company can be added.
+
+Request = POST - localhost:3000/api/cities
+Body = {
+    "id":6,
+    "first_name":"New",
+    "last_name":"Added",
+    "city":"Test",
+    "company":"company"
+
+}
+
+Response= 
